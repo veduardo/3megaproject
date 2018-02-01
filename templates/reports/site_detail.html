@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Site Details - {{ site.name }}</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td><strong>Date</strong></td>
+            <td><strong>A Value</strong></td>
+            <td><strong>B Value</strong></td>
+        </tr>
+    </thead>
+
+    {% for record in site.report_set.all %}
+    <tbody>
+        <tr>
+            <td>{{ record.date }}</td>
+            <td>{{ record.a_value|floatformat:2 }}</td>
+            <td>{{ record.b_value|floatformat:2 }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Sites</h1>
+<ul class="list-group">
+    {% for post in object_list %}
+    <li class="list-group-item"><a href="{% url 'site_detail' post.id %}">{{ post.name }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
