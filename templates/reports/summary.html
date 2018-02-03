@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load report_operations %}
+
+{% block navbar-nav %}
+<li><a href="/">Sites</a></li>
+<li class="active"><a href="{% url 'summary' %}">Summary</a></li>
+<li><a href="https://github.com/veduardo">Code</a></li>
+{% endblock %}
+
+{% block content %}
+
+<h1>Summary</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td><strong>Site</strong></td>
+            <td><strong>A Value</strong></td>
+            <td><strong>B Value</strong></td>
+        </tr>
+    </thead>
+
+    {% for site in object_list %}
+    <tbody>
+        <tr>
+            <td>{{ site.name }}</td>
+            <td>{{ site|sum:'a'|floatformat:2 }}</td>
+            <td>{{ site|sum|floatformat:2 }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}

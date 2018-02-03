@@ -18,11 +18,11 @@
     .row.content {height: 450px}
 
     /* Set gray background color and 100% height */
-    .sidenav {
+/*    .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
       height: 100%;
-    }
+    }*/
 
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
@@ -33,34 +33,23 @@
       .row.content {height:auto;}
     }
 
-     .greeting {
+/*     .greeting {
       color: white !important;
-     }
+     }*/
   </style>
 </head>
 <body>
 
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand glyphicon glyphicon-bullhorn" href="#"></a>
-    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
+        {% block navbar-nav %}
         <li class="active"><a href="/">Sites</a></li>
-        <li><a href="https://about.me/viniciusesoares">About</a></li>
-        <li><a href="https://github.com/veduardo">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'summary' %}">Summary</a></li>
+        <li><a href="https://github.com/veduardo">Code</a></li>
+        {% endblock %}
       </ul>
     </div>
-  </div>
 </nav>
 
 <main>
@@ -77,10 +66,6 @@
     </div>
 
     <div class="col-sm-2 sidenav">
-      <div class="well">
-      </div>
-      <div class="well">
-      </div>
     </div>
   </div>
 </div>

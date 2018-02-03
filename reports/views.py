@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import DetailView, ListView
 
-from models import Site
+from models import Site, Report
 
 class SiteList(ListView):
     model = Site
@@ -12,5 +12,6 @@ class SiteList(ListView):
 class SiteDetail(DetailView):
     model = Site
 
-class SummaryView(ListView):
-    pass
+class Summary(ListView):
+    model = Site
+    template_name = 'reports/summary.html'
