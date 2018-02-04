@@ -27,15 +27,15 @@
     </thead>
 
     {% block tbody %}
-    {% for site in object_list %}
     <tbody>
+    {% for site in object_list %}
         <tr>
             <td>{{ site.name }}</td>
             <td>{{ site|sum:'a'|floatformat:2 }}</td>
             <td>{{ site|sum|floatformat:2 }}</td>
         </tr>
-    </tbody>
     {% endfor %}
+    </tbody>
     {% endblock%}
 
 </table>

@@ -12,15 +12,15 @@
         </tr>
     </thead>
 
-    {% for record in site.report_set.all %}
     <tbody>
+    {% for record in site.report_set.all %}
         <tr>
             <td>{{ record.date }}</td>
             <td>{{ record.a_value|floatformat:2 }}</td>
             <td>{{ record.b_value|floatformat:2 }}</td>
         </tr>
-    </tbody>
     {% endfor %}
+    </tbody>
 </table>
 
 {% endblock %}
