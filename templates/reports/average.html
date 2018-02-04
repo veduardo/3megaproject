@@ -1,0 +1,21 @@
+{% extends 'reports/summary.html' %}
+
+{% load report_operations %}
+
+{% block buttons %}
+<a class="btn btn-primary" href="{% url 'summary' %}">Sum</a>
+<a class="btn btn-primary active" href="{% url 'average' %}">Average</a>
+{% endblock %}
+
+
+{% block tbody %}
+    {% for site in sites %}
+    <tbody>
+        <tr>
+            <td>{{ site.name }}</td>
+            <td>{{ site.a_value|floatformat:2 }}</td>
+            <td>{{ site.b_value|floatformat:2 }}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+{% endblock %}
